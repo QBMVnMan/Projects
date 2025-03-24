@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/styles/orderManage.css">
+    <link rel="icon" type="image/png" href="/images/homepages/logo.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/homepages/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <section id="Home">
+
+        <nav>
+            <div class="logo">
+                <a href="/" class="logo-link">
+                    <img src="/images/homepages/logo.png" alt="Karma Kitchen Logo">
+                </a>
+                <h2 class="site-title">
+                    <a href="/">
+                        <%= title %>
+                    </a>
+                </h2>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="/">Trang chủ</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="/menu" class="dropbtn">Menu</a>
+                        <div class="dropdown-content">
+                            <a href="/menu#appetizer">Khai vị</a>
+                            <a href="/menu#main-course">Món chính</a>
+                            <a href="/menu#dessert">Tráng miệng</a>
+                            <a href="/menu#beverage">Đồ uống</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a href="/table" class="dropbtn">Order</a>
+                        <div class="dropdown-content">
+                            <a href="/table#1st">Tầng 1</a>
+                            <a href="/table#2nd">Tầng 2</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="/order">Quản lý order</a></li>
+            </ul>
+        </nav>
+    </section>
+
+
+    <div class="order" id="order">
+
+        <!-- Food Section -->
+        <div class="bar">
+            <a onclick="toggleSection('food_new')">Order mới</a>
+            <a onclick="toggleSection('food_prepared')">Chuẩn bị xong</a>
+            <a onclick="toggleSection('food_served')">Đã phục vụ</a>
+        </div>
+
+        <!-- New Order Section -->
+        <div class="order-section active" id="food_new">
+            <ul>
+                <% orders.filter(order=> order.Status === 'New').forEach(function(order) { %>
+                    <li>
+                        <div class="order-info">
+                            <div class="order-table">
+                                <span class="order-id">Order <%= order.OrderID %></span>
+                                <span class="table-id">Bàn <%= order.TableName %></span>
+                            </div>
+                            <div class="name-quantity">
+                                <strong>Tên món:</strong>
+                                <div class="food-name">
+                                    <%= order.FoodName %>
+                                </div>
+                                <span class="quantity"><strong>Số lượng:</strong>
+                                    <%= order.Quantity %>
+                                </span>
+                            </div>
+                            <div class="note">
+                                <span class="note"><strong>Ghi chú:</strong>
+                                    <%= order.Note %>
+                                </span>
+                            </div>
+                            <div class="buttons-dropdown">
+                                <button class="mark-prepared-btn" data-order-id="<%= order.OrderID %>">Đã chuẩn bị
+                                    xong</button>
+                            </div>
+                        </div>
+                    </li>
+                    <% }); %>
+            </ul>
+        </div>
+
+        <!-- Prepared Section -->
+        <div class="order-section" id="food_prepared">
+            <ul>
+                <% orders.filter(order=> order.Status === 'Prepared').forEach(function(order) { %>
+                    <li>
+                        <div class="order-info">
+                            <div class="order-table">
+                                <span class="order-id">Order <%= order.OrderID %></span>
+                                <span class="table-id">Bàn <%= order.TableName %></span>
+                            </div>
+                            <div class="name-quantity">
+                                <strong>Tên món:</strong>
+                                <div class="food-name">
+                                    <%= order.FoodName %>
+                                </div>
+                                <span class="quantity"><strong>Số lượng:</strong>
+                                    <%= order.Quantity %>
+                                </span>
+                            </div>
+                            <div class="note">
+                                <span class="note"><strong>Ghi chú:</strong>
+                                    <%= order.Note %>
+                                </span>
+                            </div>
+                            <div class="buttons-dropdown">
+                                <button class="mark-served-btn" data-order-id="<%= order.OrderID %>">Đã phục
+                                    vụ</button>
+
+                            </div>
+                        </div>
+                    </li>
+                    <% }); %>
+            </ul>
+        </div>
+
+        <!-- Served Section -->
+        <div class="order-section" id="food_served">
+            <ul>
+                <% orders.filter(order=> order.Status === 'Served').forEach(function(order) { %>
+                    <li>
+                        <div class="order-info">
+                            <div class="order-table">
+                                <span class="order-id">Order <%= order.OrderID %></span>
+                                <span class="table-id">Bàn <%= order.TableName %></span>
+                            </div>
+                            <div class="name-quantity">
+                                <strong>Tên món:</strong>
+                                <div class="food-name">
+                                    <%= order.FoodName %>
+                                </div>
+                                <span class="quantity"><strong>Số lượng:</strong>
+                                    <%= order.Quantity %>
+                                </span>
+                            </div>
+                            <div class="note">
+                                <span class="note"><strong>Ghi chú:</strong>
+                                    <%= order.Note %>
+                                </span>
+                            </div>
+
+                        </div>
+                    </li>
+                    <% }); %>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="link-location">
+            <div class="footer_tag quick_link">
+                <h4>Chung</h4>
+                <ul>
+                    <li><a href="/"> Trang Chủ</a></li>
+                    <li><a href="/menu">Menu</a></li>
+                    <li><a href="/table">Order</a></li>
+                    <li><a href="/order">Quản lý order</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_tag dia_diem">
+                <h4>Địa điểm</h4>
+                <p>
+                    <i class="fas fa-location-dot"></i><span> 46B Bát Đàn, P. Hàng Bồ, Q. Hoàn Kiếm, Hanoi,
+                        Vietnam</span>
+                </p>
+            </div>
+
+            <div class="footer_tag contact">
+                <h4>Liên hệ</h4>
+                <a href="https://www.facebook.com/karmakitchenhanoi">
+                    <i class="fa-brands fa-facebook-f"></i><span> Karma Kitchen Hanoi</span>
+                </a>
+                <p><i class="fas fa-phone"></i> 098 708 97 62</p>
+                <p><i class="fas fa-envelope"></i> karmakitchen.hn@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>Copyright 2024 || &copy; all right reserved</p>
+        </div>
+    </footer>
+
+
+    <script src="/scripts/orderManage.js"></script>
+
+
+</body>
+
+</html>

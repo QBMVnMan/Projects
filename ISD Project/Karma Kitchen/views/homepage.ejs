@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/styles/homepage.css">
+  <link rel="icon" type="image/png" href="/images/homepages/logo.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/homepages/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+  <section id="Home">
+
+    <nav>
+      <div class="logo">
+        <a href="/" class="logo-link">
+          <img src="/images/homepages/logo.png" alt="Karma Kitchen Logo">
+        </a>
+        <h2 class="site-title">
+          <a href="/">
+            <%= title %>
+          </a>
+        </h2>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="/">Trang chủ</a></li>
+        <li>
+          <div class="dropdown">
+            <a href="/menu" class="dropbtn">Menu</a>
+            <div class="dropdown-content">
+              <a href="/menu#appetizer">Khai vị</a>
+              <a href="/menu#main-course">Món chính</a>
+              <a href="/menu#dessert">Tráng miệng</a>
+              <a href="/menu#beverage">Đồ uống</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <a href="/table" class="dropbtn">Order</a>
+            <div class="dropdown-content">
+              <a href="/table#1st">Tầng 1</a>
+              <a href="/table#2nd">Tầng 2</a>
+            </div>
+          </div>
+        </li>
+
+        <li><a href="/order">Quản lý order</a></li>
+      </ul>
+
+    </nav>
+
+  </section>
+
+
+  <main>
+
+    <section id="homep" class="home">
+      <div class="home-image">
+        <img src="/images/homepages/home-img.png" alt="Net Error" />
+      </div>
+      <div class="home-desc">
+        <h1>Thức ăn <span>NGON</span> mang lại nụ cười</h1>
+        <p>
+          Với mỗi món ăn ngon, chúng tôi mang đến một nụ cười trên môi của bạn. Hãy cảm nhận hương vị tuyệt vời
+          và trải nghiệm những khoảnh khắc đầy hạnh phúc khi thưởng thức mỗi món ăn tại: <a href="/"><span>Karma Kitchen
+              Hanoi</span></a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- g-card -->
+  <div class="gallary">
+    <h1>Khám phá <span>các món ngon !</span></h1>
+    <div class="gallary_box">
+      <div class="g-card">
+        <img src="/images/homepages/Khai vị.jpg" alt="Net Error" />
+
+        <div class="info">
+          <h2 class="name">Khai Vị</h2>
+          <p class="food_inf">Một tác phẩm nghệ thuật tinh tế, kết hợp hương vị độc đáo và sự sáng tạo trong từng đợt.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="g-card">
+        <img src="/images/homepages/Món chính.jpg" alt="Net Error" />
+
+        <div class="info">
+          <h2 class="name">Món Chính</h2>
+          <p class="food_inf">Sự kết hợp hoàn hảo giữa các thành phần tươi ngon, mang lại trải nghiệm ẩm thực đích thực.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="g-card">
+        <img src="/images/homepages/Tráng miệng.jpg" alt="Net Error" />
+
+        <div class="info">
+          <h2 class="name">Tráng Miệng</h2>
+          <p class="food_inf">Điểm sáng cuối bữa, mang lại cảm giác nhẹ nhàng và hài hòa sau mỗi bữa ăn.</p>
+
+        </div>
+
+      </div>
+
+      <div class="g-card">
+        <img src="/images/homepages/Đồ uống.jpg" alt="Net Error" />
+
+        <div class="info">
+          <h2 class="name">Đồ Uống</h2>
+          <p class="food_inf">Hòa quyện giữa hương vị tinh tế và sự tươi mới, là nguồn cảm hứng hoàn hảo cho mọi thời
+            điểm.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="about" id="About">
+    <div class="about_main">
+
+      <div class="about-image">
+        <img src="/images/homepages/Food-Plate.png" alt="Net Error" />
+      </div>
+
+      <div class="about_text">
+        <h1><span>Về </span>chúng tôi</h1>
+        <p>
+          Karma Kitchen Hà Nội xuất phát từ ý tưởng muốn tạo ra một môi trường để mọi người cùng phụng sự không vụ lợi,
+          cho đi trong vô ngã.
+          Một trải nghiệm tự nguyện cho đi trong sự hào phóng, của tất cả những người tham gia: từ người làm món ăn,
+          người phục vụ, người lan tỏa, cho đến khách hàng.
+        </p>
+        <p>
+          Hãy tưởng tượng một nhà hàng không có giá món ăn trên thực đơn, và sau khi dùng bữa bạn nhận được hoá đơn ghi
+          0 đồng, chỉ với dòng chữ:
+          "Bữa ăn của bạn là một món quà từ một vị khách đến trước bạn. Bạn có thể tiếp nối chuỗi quà tặng bằng cách trả
+          tiền cho vị khách tiếp sau bạn." Bằng cách đó, Karma Kitchen tin rằng sự cho đi không vụ lợi và đầy tin tưởng
+          sẽ kết nối những cá nhân thành cộng đồng để cùng thực tập “Sống như một món quà - Giftivism.”
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+
+    <div class="link-location">
+      <div class="footer_tag quick_link">
+        <h4>Chung</h4>
+        <ul>
+          <li><a href="/"> Trang Chủ</a></li>
+          <li><a href="/menu">Menu</a></li>
+          <li><a href="/table">Order</a></li>
+          <li><a href="/order">Quản lý order</a></li>
+
+        </ul>
+      </div>
+
+      <div class="footer_tag dia_diem">
+        <h4>Địa điểm</h4>
+        <p>
+          <i class="fas fa-location-dot"></i><span> 46B Bát Đàn, P. Hàng Bồ, Q. Hoàn Kiếm, Hanoi, Vietnam</span>
+        </p>
+      </div>
+
+      <div class="footer_tag contact">
+        <h4>Liên hệ</h4>
+        <a href="https://www.facebook.com/karmakitchenhanoi">
+          <i class="fa-brands fa-facebook-f"></i><span> Karma Kitchen Hanoi</span>
+        </a>
+        <p><i class="fas fa-phone"></i> 098 708 97 62</p>
+        <p><i class="fas fa-envelope"></i> karmakitchen.hn@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>Copyright 2024 || &copy; all right reserved</p>
+    </div>
+  </footer>
+
+  <script src="/scripts/homepage.js"></script>
+</body>
+
+</html>

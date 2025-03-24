@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/styles/table.css">
+    <link rel="icon" type="image/png" href="/images/homepages/logo.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/homepages/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <section id="Home">
+
+        <nav>
+            <div class="logo">
+                <a href="/" class="logo-link">
+                    <img src="/images/homepages/logo.png" alt="Karma Kitchen Logo">
+                </a>
+                <h2 class="site-title">
+                    <a href="/">
+                        <%= title %>
+                    </a>
+                </h2>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="/">Trang chủ</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="/menu" class="dropbtn">Menu</a>
+                        <div class="dropdown-content">
+                            <a href="/menu#appetizer">Khai vị</a>
+                            <a href="/menu#main-course">Món chính</a>
+                            <a href="/menu#dessert">Tráng miệng</a>
+                            <a href="/menu#beverage">Đồ uống</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a href="/table" class="dropbtn">Order</a>
+                        <div class="dropdown-content">
+                            <a href="/table#1st">Tầng 1</a>
+                            <a href="/table#2nd">Tầng 2</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/order">Quản lý order</a></li>
+            </ul>
+
+        </nav>
+
+
+
+    </section>
+
+    <main>
+
+        <div class="switch-container">
+            <div id="first-layer" class="layer active">
+                <!-- Floor 01 -->
+                <div class="table" id="1st">
+                    <h1>Floor <span>01</span></h1>
+                    <div class="table_box">
+                        <% tables.forEach(table=> { %>
+                            <% if (table.Floor==='1' ) { %>
+                                <div class="table_card" tableId="<%= table.TableName %>">
+                                    <div class="table_info">
+                                        <h2>
+                                            <%= table.TableName %>
+                                        </h2>
+                                        <p>
+                                            <%= table.Description %>
+                                        </p>
+                                        <div class="table-edit">
+                                            <!-- <a href="#" class="book_btn">Order</a> -->
+                                            <button class="book_btn" onclick="openForm()"><strong>Tạo
+                                                    order</strong></button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <% }); %>
+                    </div>
+                </div>
+            </div>
+
+            <div id="second-layer" class="layer">
+                <!-- Floor 02 -->
+                <div class="table" id="2nd">
+                    <h1>Floor <span>02</span></h1>
+                    <div class="table_box">
+                        <% tables.forEach(table=> { %>
+                            <% if (table.Floor==='2' ) { %>
+                                <div class="table_card" tableId="<%= table.TableName %>">
+                                    <div class="table_info">
+                                        <h2>
+                                            <%= table.TableName %>
+                                        </h2>
+                                        <p>
+                                            <%= table.Description %>
+                                        </p>
+                                        <div class="table-edit">
+                                            <a href="#" class="book_btn">Order</a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <% }); %>
+                    </div>
+                </div>
+            </div>
+
+            <button id="switch-btn">Tầng khác</button>
+        </div>
+
+
+        <!--popup-->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+
+                <a href="/table" class="close-button" onclick="closeForm()">&times;</a>
+
+                <!-- Form part in table.ejs -->
+                <form id="orderForm" action="/table/createOrder" method="POST">
+                    <h2>Thông tin order</h2>
+                    <div class="form-group">
+                        <label for="maBan">Mã bàn: </label>
+                        <input type="text" id="maBan" name="maBan" placeholder="Nhập mã bàn" required>
+                    </div>
+                    <div class="additional-item">
+                        <div class="form-group">
+                            <label for="tenMon" class="left-align-label1">Tên món:</label>
+                            <select class="tenMon" name="tenMon" id="tenMon" required>
+                                <option value="">Chọn món ăn</option>
+                                <% foods.forEach(food=> { %>
+                                    <option value="<%= food.FoodName %>">
+                                        <%= food.FoodName %>
+                                    </option>
+                                    <% }); %>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="soLuong" class="left-align-label">Số lượng:</label>
+                            <input type="number" class="soLuong" name="soLuong[]" min="1" value="1" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ghiChu">Ghi chú:</label>
+                        <textarea id="ghiChu" name="ghiChu" placeholder="Nhập ghi chú"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Tạo order</button>
+                        <button type="button" class="cancel" onclick="closeForm()">Hủy</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="link-location">
+            <div class="footer_tag quick_link">
+                <h4>Chung</h4>
+                <ul>
+                    <li><a href="/"> Trang Chủ</a></li>
+                    <li><a href="/menu">Menu</a></li>
+                    <li><a href="/table">Order</a></li>
+                    <li><a href="/order">Quản lý order</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_tag dia_diem">
+                <h4>Địa điểm</h4>
+                <p>
+                    <i class="fas fa-location-dot"></i><span> 46B Bát Đàn, P. Hàng Bồ, Q. Hoàn Kiếm, Hanoi,
+                        Vietnam</span>
+                </p>
+            </div>
+
+            <div class="footer_tag contact">
+                <h4>Liên hệ</h4>
+                <a href="https://www.facebook.com/karmakitchenhanoi">
+                    <i class="fa-brands fa-facebook-f"></i><span> Karma Kitchen Hanoi</span>
+                </a>
+                <p><i class="fas fa-phone"></i> 098 708 97 62</p>
+                <p><i class="fas fa-envelope"></i> karmakitchen.hn@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>Copyright 2024 || &copy; all right reserved</p>
+        </div>
+    </footer>
+
+
+    <script src="/scripts/table.js"></script>
+
+
+</body>
+
+</html>

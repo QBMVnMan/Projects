@@ -1,0 +1,454 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Đảm bảo body không bị tràn */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(../images/homepages/bg3.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-y: scroll; /* Thêm thuộc tính này */
+  height: 100vh; /* Đảm bảo body chiếm toàn bộ chiều cao viewport */
+}
+
+/* Đảm bảo section không chiếm chiều cao quá mức */
+section {
+  width: 100%;
+  height: auto;
+  max-height: 100vh; /* Chỉnh lại từ calc(100vh - 100px) */
+  overflow-y: auto;
+}
+
+
+section nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  left: 0;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  margin-bottom: 20px;
+  top: 0; /* Đảm bảo nav dính vào đỉnh của trang */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  margin-right: 10px;
+}
+
+.logo h2 {
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+section nav .logo img {
+  width: 40px;
+  cursor: pointer;
+  margin: 7px 0;
+}
+
+section nav ul {
+  list-style: none;
+}
+
+section nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+section nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 17px;
+  transition: 0.1s;
+}
+
+section nav ul li a::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background: #fac031;
+  display: block;
+  transition: 0.2s linear;
+}
+
+section nav ul li a:hover::after {
+  width: 100%;
+}
+
+section nav ul li a:hover {
+  color: #e23314;
+}
+
+section nav .icon i {
+  font-size: 18px;
+  color: #000;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+section nav .icon i:hover {
+  color: #d3e720;
+}
+
+/* Header Styles */
+.site-title a {
+  text-decoration: none;
+  display: inline;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding-top: 20px;
+  margin: 0;
+  align-content: center;
+}
+
+
+.dropdown {
+  position: relative;
+  display: in;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: black;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+
+
+/* Order */
+.order {
+  padding: 60px 0 0 0; /* Đảm bảo không có padding dưới */
+}
+
+/* Kiểu cho thanh chứa các nút */
+.bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fbfcfa56;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  z-index: 1000;
+  position: fixed;
+  top: 55px;
+  width: 100%;
+}
+
+/* Kiểu cho các nút */
+.bar a {
+  background-color: #ccc; /* Màu nền xanh dương */
+  color: rgb(0, 0, 0); /* Màu chữ trắng */
+  border: none; /* Không viền */
+  padding: 10px 20px; /* Khoảng đệm bên trong nút */
+  margin: 10px 10px 0 10px; /* Khoảng cách giữa các nút */
+  border-radius: 4px; /* Bo góc */
+  cursor: pointer; /* Đổi con trỏ thành bàn tay khi hover */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
+}
+
+/* Hiệu ứng khi hover vào nút */
+.bar a:hover {
+  background-color: #095693; /* Màu nền tối hơn khi hover */
+  color: #ffffff
+}
+
+
+.bar a.active {
+  background-color: #095693;
+  color: white;
+}
+
+
+
+/* Styling for order sections */
+.order-section {
+  display: none;
+  margin-top: 80px;
+}
+
+.order-section.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+/* Styling for the list of orders */
+.order-section ul {
+  list-style: none;
+}
+
+/* Styling for individual order items */
+.order-section ul li {
+  display: flex;
+  flex-direction: column; /* Changed from row to column */
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  width: 110%;
+}
+
+.order-section ul li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for each field */
+.order-section ul li .order-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-section ul li .order-info > div {
+  flex: 1; /* Each div takes equal space */
+  margin-left: 70px; /* Margin between divs */
+}
+
+.order-id {
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffffff;
+}
+.table-id {
+  color: #f1f1f1;
+}
+
+.name strong {
+  font-weight: bold;
+}
+
+.quantity strong {
+  font-weight: bold;
+}
+
+.note strong {
+  font-weight: bold;
+}
+
+.table-id, .quantity {
+  margin-top: 10px;
+}
+
+
+/* Style for the note */
+.note {
+  color: #000000;
+}
+
+.order-table {
+  border: 2px solid #6247bb;
+  padding: 5px; 
+  border-radius: 5px; 
+  background-color: #6247bb; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  display: flex; /* Enable flexbox */
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; /
+}
+
+/* Adjusted styles for buttons and dropdown */
+.order-table, .name-quantity, .buttons-dropdown {
+  display: flex;
+  flex-direction: column; /* Change to column direction */
+}
+
+
+
+/* Style for individual buttons */
+.buttons-dropdown .mark-prepared-btn {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #42c928;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px;
+    color: #ffffff;
+}
+
+.buttons-dropdown .mark-served-btn{
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #42c928;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px;
+  color: #ffffff;
+}
+/* Hover effect for buttons */
+.buttons-dropdown .mark-prepared-btn:hover {
+    background-color: #ccc;
+    color: #000000;
+}
+
+.buttons-dropdown .mark-served-btn:hover {
+  background-color: #ccc;
+  color: #000000;
+}
+
+
+/* Footer Styles */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ddd3d3;
+  margin-top: 300px;
+  padding: 20px 20px 12px 20px;
+  
+}
+
+
+
+.link-location {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 900px;
+  justify-content: center;
+}
+
+.footer_tag {
+  flex: 1;
+  margin-right: 20px;
+  width: 100%;
+}
+
+.footer_tag:last-child {
+  margin-right: 0;
+}
+
+.footer_tag h4,
+.footer_tag h2 {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.footer_tag ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer_tag ul li {
+  margin-bottom: 5px;
+}
+
+.footer_tag ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.footer_tag ul li a:hover {
+  color: #666;
+}
+
+.footer_tag p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.footer_tag h4 {
+  padding-bottom: 10px;
+}
+
+.footer_tag p:first-child {
+  margin-top: 0;
+}
+
+.dia_diem {
+  padding-right: 50px;
+}
+
+.contact {
+  padding-left: 100px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.footer_tag p:last-child {
+  margin-bottom: 0;
+}
+
+.copyright {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+.menu-toggle {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
